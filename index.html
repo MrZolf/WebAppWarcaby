@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Warcaby</title>
+  <link rel="shortcut icon" type="image/png" href="img/ico.png">
+  <link href="https://fonts.googleapis.com/css2?family=Aboreto&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  
+  <div class="column right-column">
+
+    <div class="info">
+      <h1>Warcaby</h1>
+      <hr>
+      <p>Warcaby w wersji "Checkers"</p><br>
+      <p>Wykonane przez:</p>
+      <p>Łukasz Malczyk 154850</p>
+      <p>Adrian Wypych  158998</p>
+      <hr>
+    </div>
+
+    <div class="functions">
+      <div class="wrapper">
+        <div id="player1">
+          <h3>Biały</h3>
+        </div>
+        <div id="player2">
+          <h3>Czarny</h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="functions">
+      <button id="cleargame">Zrestartuj grę</button>
+      <button onclick="window.open('https://www.draughtsforandroid.com/pl/warcaby-podstawowe-zasady.html#zaczac-gre-warcaby')" class="button">
+        Poznaj zasady gry w warcaby
+      </button>
+    </div>
+
+    <span id="jump" class="popup"></span>
+    <span id="winner" class="popup"></span>
+
+  </div>
+  
+  <div class="column left-column">
+    
+    <div id="top-turn-container">
+      <div class="turn"></div>
+    </div>
+
+    <div id="board">
+      <div class="tiles"></div>
+      <div class="pieces">
+        <div class="player1pieces"></div>
+        <div class="player2pieces"></div>
+      </div>
+    </div>
+
+    <div id="bottom-turn-container">
+      <div class="turn"></div>
+    </div>
+
+  </div>
+
+</body>
+</html>

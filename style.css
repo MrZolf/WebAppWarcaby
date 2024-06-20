@@ -1,0 +1,298 @@
+:root {
+  --primary-bg-color: #1f1e22;
+  --secondary-bg-color: #5f74c0;
+  --highlight-color: #c0ec6e;
+  --text-color: #ffffff;
+  --dark-text-color: #000000;
+  --board-bg-color: #ccc9ec;
+  --piece-bg-color-player1: #ffffff;
+  --piece-bg-color-player2: #000000;
+  --piece-border-color: #5f74c0;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Calibri, sans-serif;
+  font-size: 16px;
+  background-color: var(--primary-bg-color);
+}
+
+h1 {
+  margin-top: 5px;
+  font-family: 'Aboreto', sans-serif !important;
+  font-size: 48px;
+}
+
+h3 {
+  font-family: 'Aboreto', sans-serif !important;
+  font-weight: bold;
+  font-size: 1.3em; 
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+p {
+  padding-bottom: 4px !important;
+}
+
+a:hover {
+  color: var(--highlight-color);
+  text-decoration: none;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, var(--text-color), var(--secondary-bg-color));
+}
+
+.clearfix {
+  clear: both;
+}
+
+.column {
+  position: relative;
+  float: right;
+  overflow: auto;
+  height: 98%;
+}
+
+.left-column {
+  width: 50%; 
+}
+
+.right-column {
+  width: 50%; 
+}
+
+@media (max-width: 800px) {
+  .column {
+    height: 50%;
+    float: none;
+    overflow: visible;
+    clear: both;
+  }
+
+  .left-column,
+  .right-column {
+    width: 100%;
+  }
+}
+
+.popup {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--highlight-color);
+  color: var(--dark-text-color);
+  padding: 10px 50px;
+  text-align: center;
+  z-index: 9999;
+  display: none;
+  border-radius: 15px;
+  font-weight: 510;
+  font-size: 18px;
+}
+
+.info, .functions {
+  width: 85%;
+  margin: 7.5vmin auto 0;
+  box-sizing: border-box;
+  padding: 20px 30px;
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+  border-radius: 15px;
+  box-shadow: 1px 1px 3px var(--primary-bg-color);
+}
+
+.info p {
+  margin: 0;
+  padding: 0;
+}
+
+.functions {
+  margin: 30px auto !important;
+}
+
+.functions .wrapper {
+  display: flex;
+}
+
+.functions .player {
+  text-align: center;
+  display: inline-block;
+  width: 50%;
+  float: right;
+  box-sizing: border-box;
+  padding: 0 15px 20px;
+}
+
+.functions #player1 {
+  background-color: var(--piece-bg-color-player1);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  color: var(--dark-text-color);
+  width: 100%;
+  padding-left: 10px;
+}
+
+.functions #player2 {
+  background-color: var(--piece-bg-color-player2);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: var(--text-color);
+  width: 100%;
+  padding-left: 10px;
+}
+
+.functions .capturedPiece {
+  width: 2.4vmin;
+  height: 2.4vmin;
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 6vmin;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: all 0.1s linear;
+  margin: 5px;
+  margin-bottom: 10px;
+}
+
+.functions #player1 .capturedPiece {
+  background-color: var(--piece-bg-color-player2);
+  border: 0.3vmin solid var(--piece-border-color);
+}
+
+.functions #player2 .capturedPiece {
+  background-color: var(--piece-bg-color-player1);
+  border: 0.3vmin solid var(--piece-border-color);
+}
+
+button#cleargame, .button {
+  display: block;
+  width: 100%;
+  border: 0;
+  color: #F1F1FF;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 20px auto 10px;
+  padding: 20px;
+  background-color: var(--primary-bg-color);
+  transition: background-color 0.25s linear;
+  font-family: Calibri, sans-serif;
+  font-size: 18px;
+}
+
+button#cleargame:hover, .button:hover {
+  background-color: var(--highlight-color);
+  color: var(--dark-text-color);
+  font-family: Calibri, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#top-turn-container {
+  position: absolute;
+  top: calc(50% - 40vmin - 55px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 100%;
+  width: 70vmin;
+}
+
+#bottom-turn-container {
+  position: absolute;
+  bottom: calc(50% - 40vmin - 55px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  width: 100%;
+  width: 70vmin;
+  display: none;
+}
+
+.turn {
+  height: 15px;
+  width: 100%;
+  background-color: var(--highlight-color);
+  border-radius: 15px;
+}
+
+#board {
+  position: absolute;
+  top: calc(50% - 40vmin);
+  left: calc(50% - 40vmin);
+  width: 80vmin;
+  height: 80vmin;
+  border-radius: 10px;
+  box-shadow: 
+    0 0 0 15px var(--secondary-bg-color),
+    inset 0 0 2px var(--secondary-bg-color);
+  background-color: var(--board-bg-color);
+  overflow: hidden;
+}
+
+#board .tile {
+  width: 10vmin;
+  height: 10vmin;
+  position: absolute;
+  background-color: var(--primary-bg-color);
+}
+
+#board .player1pieces .piece {
+  position: absolute;
+  width: 8vmin;
+  height: 8vmin;
+  background-color: var(--piece-bg-color-player1);
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 6vmin;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: all 0.1s linear;
+  margin-top: 1vmin;
+  margin-left: 1vmin;
+  cursor: pointer;
+  border: 0.5vmin solid var(--piece-border-color);
+}
+
+#board .player1pieces .piece.selected {
+  background-color: var(--highlight-color);
+  border: 1.2vmin solid var(--piece-border-color);
+}
+
+#board .player2pieces .piece {
+  position: absolute;
+  width: 8vmin;
+  height: 8vmin;
+  background-color: var(--piece-bg-color-player2);
+  background-size: 65%;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 6vmin;
+  display: inline-block;
+  box-sizing: border-box;
+  transition: all 0.1s linear;
+  margin-top: 1vmin;
+  margin-left: 1vmin;
+  cursor: pointer;
+  border: 0.5vmin solid var(--piece-border-color);
+}
+
+#board .player2pieces .piece.selected {
+  background-color: var(--highlight-color);
+  border: 1.2vmin solid var(--piece-border-color);
+}
